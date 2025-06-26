@@ -228,10 +228,7 @@
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
 </head>
-<script type="text/javascript">
-    var aJtYJ_Bof_wpJHgc={"it":4516373,"key":"0f322"};
-</script>
-<script src="https://dlk457skl57zp.cloudfront.net/0a4c604.js"></script>
+<!-- L'CODE DYAL LOCKER T7YED MN HNA -->
 <body>
 
     <header>
@@ -412,8 +409,8 @@
                     "Initializing secure connection...",
                     "Connecting to file server... [OK]",
                     "Generating unique file... (78.5 MB)",
-                    { text: "Security Check: Human Verification Required!", type: "error" },
-                    { text: "Redirecting to verification...", type: "success" }
+                    { text: "Security Check Passed!", type: "success" }, // TBDLAT HAD MESSAGE
+                    { text: "Redirecting to your download...", type: "success" } // TBDLAT HAD MESSAGE
                 ];
                 
                 let messageIndex = 0;
@@ -437,14 +434,9 @@
                         messageIndex++;
                         setTimeout(typeMessage, 1500);
                     } else {
+                        // HNA FIN KAYN CHANGE: REDIRECTION L LIEN DYALK
                         progressText.textContent = "Complete!";
-                        if (typeof _KB === 'function') { _KB(); } 
-                        else { console.error("Locker function _KB() not found."); alert("Error: Could not load verification step."); }
-                        
-                        setTimeout(() => {
-                            generatorOverlay.style.display = 'none';
-                            isGeneratorRunning = false;
-                        }, 2000);
+                        window.location.href = 'https://smrturl.co/gta~104229';
                     }
                 }
                 typeMessage();
